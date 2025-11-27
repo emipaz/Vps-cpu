@@ -14,6 +14,10 @@ if not os.path.exists(DATA_DIR):
 
 CSV_FILE = os.path.join(DATA_DIR, 'contactos.csv')
 
+MEDIA_DIR = os.path.join(DATA_DIR, 'media')
+if not os.path.exists(MEDIA_DIR):
+    os.makedirs(MEDIA_DIR)
+
 # Crear archivo CSV con headers si no existe
 def init_csv():
     if not os.path.exists(CSV_FILE):
@@ -96,7 +100,20 @@ def listar_contactos():
     except Exception as e:
         return jsonify({"error": f"Error al leer contactos: {str(e)}"}), 500
 
-
+@app.route('/transcribe', methods=['POST'])
+def transcribe_media():
+    if 'media' not in request.files:
+        return jsonify({'error': 'No se envió ningún archivo.'}), 400
+    media_file = request.files['media']
+    filename = media_file.filename
+    save_path = os.path.join(MEDIA_DIR, filename)
+    media_file.save(save_path)
+    # Aquí se puede agregar el procesamiento con Assembly/OpenAI
+    return jsonify({
+        'message': 'Archivo recibido correctamente.',
+        'filename': filename,
+        'path': save_path
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
