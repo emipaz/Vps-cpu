@@ -1,4 +1,3 @@
-
 // Importa los módulos necesarios de React Router para manejo de rutas
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
@@ -15,6 +14,7 @@ import Manifesto from './Manifesto';
 import Team from './Team';
 import BackendHello from './BackendHello';
 import Contacto from './Contacto';
+import TranscribePage from './TranscribePage';
 import img from './assets/en_construccion.jpeg';
 
 // Componente para la ruta de pruebas, incluye un contador y un enlace de regreso
@@ -56,10 +56,15 @@ function Pruebas() {
   );
 }
 
-
-
-
-
+// Componente para la página de transcripción
+// function TranscribePage() {
+//   return (
+//     <div className="app-bg">
+//       <h1 className="hero-title">Página de transcripción</h1>
+//       <p>Este es un ejemplo de página de transcripción.</p>
+//     </div>
+//   );
+// }
 
 
 // Componente principal de la aplicación, define las rutas y carga los componentes principales
@@ -95,7 +100,7 @@ function App() {
             {/* Sección del Equipo */}
             <Team />
             
-            {/* Contenedor con fondo y botón para ir a la zona de pruebas */}
+            {/* Zona de pruebas - Comentada pero la ruta sigue activa
             <div style={{marginTop:'2rem', textAlign:'center'}}>
               
               <span style={{
@@ -106,13 +111,13 @@ function App() {
                 padding       : '0.5rem 1.5rem'
               }}>
 
-                {/* Enlace a la ruta de pruebas */}
                 <Link to="/pruebas" className="hero-button" style={{margin:0}}>
                   Ir a zona de pruebas
                 </Link>
               </span>
             
             </div>
+            */}
           
           </div>
         } />
@@ -120,6 +125,9 @@ function App() {
         {/* Ruta para la zona de pruebas */}
         <Route path="/pruebas" element={<Pruebas />} />
       
+        {/* Ruta para la página de transcripción */}
+        <Route path="/transcribe" element={<TranscribePage />} />
+
         {/* Ruta para la página de contacto */}
         <Route path="/contacto" element={<Contacto />} />
       </Routes>

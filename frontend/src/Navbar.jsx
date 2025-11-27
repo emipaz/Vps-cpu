@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-logo">
         <img src="/vae_logo.svg" alt="VAE Logo" className="logo-img" />
-        <Link to="/" className="navbar-brand">VAE</Link>
+        <Link to="/" className="navbar-brand">Home</Link>
       </div>
       <ul className="navbar-menu">
         <li><a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')}>Sobre Nosotros</a></li>

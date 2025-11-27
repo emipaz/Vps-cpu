@@ -1,0 +1,18 @@
+.transcribe-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.transcribe-container h1 {
+  color: #0077b6;
+  margin-bottom: 1rem;
+}
+
+.transcribe-container p {
+  color: #333;
+  margin-bottom: 2rem;
+}
